@@ -74,10 +74,6 @@ RUN cd ~/nginx/ \
 ADD ./assets/config/nginx.conf /etc/nginx/nginx.conf
 ADD ./assets/config/default.conf /etc/nginx/conf.d/default.conf
 
-# forward request and error log to docker log collector
-RUN ln -sf /var/log/nginx/access.log /dev/stdout
-RUN ln -sf /var/log/nginx/error.log /dev/stderr
-
 # clean cache
 RUN apt-get clean autoclean \
     && apt-get autoremove -y \
