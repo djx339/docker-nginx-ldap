@@ -4,14 +4,16 @@ MAINTAINER Daniel D <djx339@gmail.com>
 ENV NGINX_VERSION 1.9.3
 ENV NGINX_USER nginx
 
-RUN apt-get update && \
-    apt-get install -y \
-    ca-certificates \
-    git gcc make \
-    libpcre3-dev \
-    zlib1g-dev \
-    libldap2-dev \
-    libssl-dev
+RUN apt-get update && apt-get install -y \
+        ca-certificates \
+        gcc \
+        git \
+        libldap2-dev \
+        libpcre3-dev \
+        libssl-dev
+        make \
+        zlib1g-dev \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN adduser --disabled-login --gecos 'Nginx' ${NGINX_USER} \
     && passwd -d ${NGINX_USER}
