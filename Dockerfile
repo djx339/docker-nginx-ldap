@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
         git \
         libldap2-dev \
         libpcre3-dev \
-        libssl-dev
+        libssl-dev \
         make \
         zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
